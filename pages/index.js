@@ -46,7 +46,7 @@ export default function Home({ launches }) {
               <a
                 key={id}
                 href={video_link}
-                className=" shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
+                className=" shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-max rounded-xl hover:text-gray-200 focus:text-red-600"
               >
                 <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold">{mission_name}</h3>
                 <Image src={mission_patch ? mission_patch : 'https://images2.imgbox.com/d2/3b/bQaWiil0_o.png'} alt="hi" layout="fixed" height={60} width={60}/>
