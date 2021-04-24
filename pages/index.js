@@ -4,15 +4,15 @@ import Image from 'next/image'
 import recentLaunches from '../components/recentLaunches'
 export default function Home({ launches }) {
   return (
-    <div className="flex flex-col items-start md:items-center justify-center min-h-screen py-2 ">
+    <div className="flex flex-col items-start md:items-center justify-center w-full min-h-screen py-2 ">
       <Head>
         <title>Space X Clay Reinhardt</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col space-y-5 py-5 items-center justify-center flex-1 px-20 text-center">
+      <main className="flex flex-col space-y-5 py-5 items-center w-full justify-center flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
-          SpaceX{' '}<div className=" transform animate-bounce font-mono text-red-600">Launches</div>
+          SpaceX{' '}<div className=" transform animate-bounce pt-5 font-mono text-red-600">Launches</div>
         </h1>
 
         <p className="mt-3 flex items-center justify-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 space-x-0 text-2xl">
@@ -22,7 +22,7 @@ export default function Home({ launches }) {
           </code>
         </p>
 
-        <div className="flex flex-wrap items-center justify-around max-w-7xl mt-6 sm:w-full">
+        <div className="flex flex-wrap items-center justify-evenly w-screen md:w-full max-w-4xl mt-6 ">
           {launches.map((launch) => {
             const {
               id,
