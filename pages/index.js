@@ -4,7 +4,7 @@ import Image from 'next/image'
 import recentLaunches from '../components/recentLaunches'
 export default function Home({ launches }) {
   return (
-    <div className="flex flex-col items-start md:items-center justify-center w-full min-h-screen py-2 ">
+    <div className="flex flex-col items-start md:items-center justify-center w-screen min-h-screen py-2 ">
       <Head>
         <title>Space X Clay Reinhardt</title>
         <link rel="icon" href="/favicon.ico" />
