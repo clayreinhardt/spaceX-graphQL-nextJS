@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply p-0;
+    @apply m-0;
+    @apply font-sans;
+    @apply bg-gray-600;
+  }
+
+  a {
+    @apply text-current;
+    @apply no-underline;
+    @apply bg-gray-800;
+    @apply text-gray-200;
+    @apply leading-relaxed;
+  }
+
+  * {
+    @apply box-border;
+  }
+}
