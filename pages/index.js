@@ -22,7 +22,7 @@ export default function Home({ launches }) {
           </code>
         </p>
 
-        <div className="flex flex-wrap items-center justify-evenly w-screen md:w-full max-w-4xl mt-6 ">
+        <div className="flex flex-wrap items-center w-full justify-evenly max-w-4xl mt-6 ">
           {launches.map((launch) => {
             const {
               id,
