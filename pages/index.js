@@ -22,7 +22,7 @@ export default function Home({ launches }) {
           </code>
         </p>
 
-        <div className="flex flex-wrap items-center w-screen justify-evenly mt-6 ">
+        <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 ">
           {launches.map((launch) => {
             const {
               id,
@@ -62,9 +62,9 @@ export default function Home({ launches }) {
       <footer className="flex items-center justify-center w-full h-24 border-t">
         <div
           className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://clayreinhardt.com"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           Powered by Clay Reinhardt
         </div>
