@@ -4,8 +4,8 @@ module.exports = {
       config: './tailwind.config.js'
     },
     autoprefixer: {
-      "flexbox": "no-2009",
-      "grid": "autoplace"
+      // "flexbox": "no-2009",
+      // "grid": "autoplace"
     },
   },
 }
