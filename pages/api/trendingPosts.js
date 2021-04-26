@@ -10,6 +10,16 @@ export default (req, res) => {
       body: 'What books do you have on your bookshelf just to look smarter than you actually are?',
       comments: 291,
     },
+    {
+      id: 2,
+      user: {
+        name: 'Yo Mama',
+        imageUrl:
+          '/astroDude.jpeg',
+      },
+      body: 'Can males pee standing up in space?',
+      comments: 1200,
+    },
     // More posts...
   ]
 

@@ -6,10 +6,10 @@ const user = {
     'https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'Home', href: '#', icon: HomeIcon, current: true },
-    { name: 'Popular', href: '#', icon: FireIcon, current: false },
-    { name: 'Communities', href: '#', icon: UserGroupIcon, current: false },
-    { name: 'Trending', href: '#', icon: TrendingUpIcon, current: false },
+    { name: 'Home', href: '#', current: true },
+    { name: 'Popular', href: '#', current: false },
+    { name: 'Who To Follow', href: '#', current: false },
+    { name: 'Trending', href: '#', current: false },
   ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -17,24 +17,24 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 const communities = [
-  { name: 'Movies', href: '#' },
-  { name: 'Food', href: '#' },
-  { name: 'Sports', href: '#' },
-  { name: 'Animals', href: '#' },
+  { name: 'Starlink', href: '#' },
+  { name: 'SpaceX', href: '#' },
+  { name: 'Nasa', href: '#' },
+  { name: 'SpaceForce', href: '#' },
   { name: 'Science', href: '#' },
-  { name: 'Dinosaurs', href: '#' },
   { name: 'Talents', href: '#' },
   { name: 'Gaming', href: '#' },
 ]
 const tabs = [
-  { name: 'Recent', href: '#', current: true },
-  { name: 'Most Liked', href: '#', current: false },
-  { name: 'Most Answers', href: '#', current: false },
+  { name: 'Questions', href: '#', current: true },
+  { name: 'Rockets', href: '#', current: false },
+  { name: 'Missions', href: '#', current: false },
+  { name: 'Next Launches', href: '#', current: false },
 ]
 const profileData = {
   user,
-  mainNavigation: navigation,
-  userNavigation: userNavigation,
+  navigation,
+  userNavigation,
   communities,
   tabs,
 }

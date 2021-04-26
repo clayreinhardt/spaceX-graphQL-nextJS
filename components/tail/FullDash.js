@@ -23,7 +23,7 @@
   }
   ```
 */
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import {
   ChatAltIcon,
@@ -39,88 +39,13 @@ import {
 } from '@heroicons/react/solid'
 import { BellIcon, FireIcon, HomeIcon, MenuIcon, TrendingUpIcon, UserGroupIcon, XIcon } from '@heroicons/react/outline'
 
-const user = {
-  name: 'Elon Musk',
-  email: 'elon@spacexiscool.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80',
-}
-const navigation = [
-  { name: 'Home', href: '#', icon: HomeIcon, current: true },
-  { name: 'Popular', href: '#', icon: FireIcon, current: false },
-  { name: 'Communities', href: '#', icon: UserGroupIcon, current: false },
-  { name: 'Trending', href: '#', icon: TrendingUpIcon, current: false },
-]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
-const communities = [
-  { name: 'Movies', href: '#' },
-  { name: 'Food', href: '#' },
-  { name: 'Sports', href: '#' },
-  { name: 'Animals', href: '#' },
-  { name: 'Science', href: '#' },
-  { name: 'Dinosaurs', href: '#' },
-  { name: 'Talents', href: '#' },
-  { name: 'Gaming', href: '#' },
-]
-const tabs = [
-  { name: 'Recent', href: '#', current: true },
-  { name: 'Most Liked', href: '#', current: false },
-  { name: 'Most Answers', href: '#', current: false },
-]
-const questions = [
-  {
-    id: '81614',
-    likes: '29',
-    replies: '11',
-    views: '2.7k',
-    author: {
-      name: 'Dries Vincent',
-      imageUrl:
-        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      href: '#',
-    },
-    date: 'December 9 at 11:43 AM',
-    datetime: '2020-12-09T11:43:00',
-    href: '#',
-    title: 'What would you have done differently if you ran Jurassic Park?',
-    body:
-      '\n          <p>\n            Jurassic Park was an incredible idea and a magnificent feat of engineering, but poor protocols and a disregard for human safety killed what could have otherwise been one of the best businesses of our generation.\n          </p>\n          <p>\n            Ultimately, I think that if you wanted to run the park successfully and keep visitors safe, the most important thing to prioritize would be&hellip;\n          </p>\n        ',
-  },
-  // More questions...
-]
-const whoToFollow = [
-  {
-    name: 'Leonard Krasner',
-    handle: 'leonardkrasner',
-    href: '#',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  },
-  // More people...
-]
-const trendingPosts = [
-  {
-    id: 1,
-    user: {
-      name: 'Clay Reinhardt',
-      imageUrl:
-        'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    body: 'What books do you have on your bookshelf just to look smarter than you actually are?',
-    comments: 291,
-  },
-  // More posts...
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const FullDash = () => {
+const FullDash = ({ profileData, questionsData, trendingData, whoToFollowData }) => {
+  const [current, setCurrent] = useState('Rockets')
   return (
     <div className="min-h-screen bg-gray-100">
       {/* When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars */}
@@ -199,7 +124,7 @@ const FullDash = () => {
                         <div>
                           <Menu.Button className="bg-white rounded-full flex focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500">
                             <span className="sr-only">Open user menu</span>
-                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                            <img className="h-8 w-8 rounded-full" src={profileData.user.imageUrl} alt="" />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -216,7 +141,7 @@ const FullDash = () => {
                             static
                             className="origin-top-right absolute z-10 right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 focus:outline-none"
                           >
-                            {userNavigation.map((item) => (
+                            {profileData.userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
                                   <a
@@ -249,7 +174,7 @@ const FullDash = () => {
 
             <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
               <div className="max-w-3xl mx-auto px-2 pt-2 pb-3 space-y-1 sm:px-4">
-                {navigation.map((item) => (
+                {profileData.navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -266,11 +191,11 @@ const FullDash = () => {
               <div className="border-t border-gray-200 pt-4 pb-3">
                 <div className="max-w-3xl mx-auto px-4 flex items-center sm:px-6">
                   <div className="flex-shrink-0">
-                    <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                    <img className="h-10 w-10 rounded-full" src={profileData.user.imageUrl} alt="" />
                   </div>
                   <div className="ml-3">
-                    <div className="text-base font-medium text-gray-800">{user.name}</div>
-                    <div className="text-sm font-medium text-gray-500">{user.email}</div>
+                    <div className="text-base font-medium text-gray-800">{profileData.user.name}</div>
+                    <div className="text-sm font-medium text-gray-500">{profileData.user.email}</div>
                   </div>
                   <button
                     type="button"
@@ -281,7 +206,7 @@ const FullDash = () => {
                   </button>
                 </div>
                 <div className="mt-3 max-w-3xl mx-auto px-2 space-y-1 sm:px-4">
-                  {userNavigation.map((item) => (
+                  {profileData.userNavigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -302,7 +227,7 @@ const FullDash = () => {
           <div className="hidden lg:block lg:col-span-3 xl:col-span-2">
             <nav aria-label="Sidebar" className="sticky top-4 divide-y divide-gray-300">
               <div className="pb-8 space-y-1">
-                {navigation.map((item) => (
+                {profileData.navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -312,7 +237,7 @@ const FullDash = () => {
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >
-                    <item.icon
+                    <HomeIcon
                       className={classNames(
                         item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
                         'flex-shrink-0 -ml-1 mr-3 h-6 w-6'
@@ -331,7 +256,7 @@ const FullDash = () => {
                   My communities
                 </p>
                 <div className="mt-3 space-y-2" aria-labelledby="communities-headline">
-                  {communities.map((community) => (
+                  {profileData.communities.map((community) => (
                     <a
                       key={community.name}
                       href={community.href}
@@ -353,16 +278,16 @@ const FullDash = () => {
                 <select
                   id="question-tabs"
                   className="block w-full rounded-md border-gray-300 text-base font-medium text-gray-900 shadow-sm focus:border-rose-500 focus:ring-rose-500"
-                  defaultValue={tabs.find((tab) => tab.current).name}
+                  defaultValue={profileData.tabs.find((tab) => tab.current).name}
                 >
-                  {tabs.map((tab) => (
+                  {profileData.tabs.map((tab) => (
                     <option key={tab.name}>{tab.name}</option>
                   ))}
                 </select>
               </div>
               <div className="hidden sm:block">
                 <nav className="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
-                  {tabs.map((tab, tabIdx) => (
+                  {profileData.tabs.map((tab, tabIdx) => (
                     <a
                       key={tab.name}
                       href={tab.href}
@@ -370,7 +295,7 @@ const FullDash = () => {
                       className={classNames(
                         tab.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700',
                         tabIdx === 0 ? 'rounded-l-lg' : '',
-                        tabIdx === tabs.length - 1 ? 'rounded-r-lg' : '',
+                        tabIdx === profileData.tabs.length - 1 ? 'rounded-r-lg' : '',
                         'group relative min-w-0 flex-1 overflow-hidden bg-white py-4 px-6 text-sm font-medium text-center hover:bg-gray-50 focus:z-10'
                       )}
                     >
@@ -387,10 +312,10 @@ const FullDash = () => {
                 </nav>
               </div>
             </div>
-            <div className="mt-4  ring-4 ring-red-500">
-              <h1 className="sr-only">Rockets</h1>
+            <div className="mt-4 ">
+              <h1 className="sr-only">Questions</h1>
               <ul className="space-y-4">
-                {questions.map((question) => (
+                {questionsData.map((question) => (
                   <li key={question.id} className="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
                     <article aria-labelledby={'question-title-' + question.id}>
                       <div>
@@ -543,7 +468,7 @@ const FullDash = () => {
                     </h2>
                     <div className="mt-6 flow-root">
                       <ul className="-my-4 divide-y divide-gray-200">
-                        {whoToFollow.map((user) => (
+                        {whoToFollowData.map((user) => (
                           <li key={user.handle} className="flex items-center py-4 space-x-3">
                             <div className="flex-shrink-0">
                               <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
@@ -587,8 +512,8 @@ const FullDash = () => {
                       Trending
                     </h2>
                     <div className="mt-6 flow-root">
-                      <ul className="-my-4 divide-y divide-gray-200 ring-4 ring-red-500">
-                        {trendingPosts.map((post) => (
+                      <ul className="-my-4 divide-y divide-gray-200">
+                        {trendingData.map((post) => (
                           <li key={post.id} className="flex py-4 space-x-3">
                             <div className="flex-shrink-0">
                               <img className="h-8 w-8 rounded-full" src={post.user.imageUrl} alt={post.user.name} />

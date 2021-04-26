@@ -11,13 +11,6 @@
     @apply bg-gray-600;
   }
 
-  a {
-    @apply text-current;
-    @apply no-underline;
-    @apply bg-gray-800;
-    @apply text-gray-200;
-    @apply leading-relaxed;
-  }
 
   * {
     @apply box-border;
