@@ -40,10 +40,10 @@ import {
 import { BellIcon, FireIcon, HomeIcon, MenuIcon, TrendingUpIcon, UserGroupIcon, XIcon } from '@heroicons/react/outline'
 
 const user = {
-  name: 'Chelsea Hagon',
-  email: 'chelseahagon@example.com',
+  name: 'Elon Musk',
+  email: 'elon@spacexiscool.com',
   imageUrl:
-    'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    'https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80',
 }
 const navigation = [
   { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -106,7 +106,7 @@ const trendingPosts = [
   {
     id: 1,
     user: {
-      name: 'Floyd Miles',
+      name: 'Clay Reinhardt',
       imageUrl:
         'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     },
@@ -387,8 +387,8 @@ const FullDash = () => {
                 </nav>
               </div>
             </div>
-            <div className="mt-4">
-              <h1 className="sr-only">Recent questions</h1>
+            <div className="mt-4  ring-4 ring-red-500">
+              <h1 className="sr-only">Rockets</h1>
               <ul className="space-y-4">
                 {questions.map((question) => (
                   <li key={question.id} className="bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg">
@@ -587,7 +587,7 @@ const FullDash = () => {
                       Trending
                     </h2>
                     <div className="mt-6 flow-root">
-                      <ul className="-my-4 divide-y divide-gray-200">
+                      <ul className="-my-4 divide-y divide-gray-200 ring-4 ring-red-500">
                         {trendingPosts.map((post) => (
                           <li key={post.id} className="flex py-4 space-x-3">
                             <div className="flex-shrink-0">
