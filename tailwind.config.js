@@ -1,5 +1,5 @@
-  const colors = require('tailwindcss/colors')
-
+const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -9,8 +9,11 @@ module.exports = {
       boxShadow: {
         '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.5)',
       },
+      fontFamily: {
+        sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+      },
       backgroundImage: theme => ({
-         'astroDude': "url('/astroDudeSM.jpeg')",         
+        'astroDude': "url('/astroDudeSM.jpeg')",
       }),
       colors: {
         rose: colors.rose,
