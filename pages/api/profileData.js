@@ -38,5 +38,6 @@ const profileData = {
   communities,
   tabs,
 }
+console.log('profileData', profileData)
   res.status(200).json(profileData)
 }

@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic'
 
-const DynamicDashboard = dynamic(() => import('../components/tail/FullDash'))
+const DynamicDashboard = dynamic(() => import('../components/tail/FullDash'), { ssr: false })
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   
   const response = await fetch('http://localhost:3000/api/profileData', {method:'get'});
   const responseQuestions = await fetch('http://localhost:3000/api/questions', {method:'get'});
