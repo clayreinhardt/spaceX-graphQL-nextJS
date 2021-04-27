@@ -1,11 +1,8 @@
-import BannerWithImage from '../components/tail/BannerWithImage'
-import BasicNav from '../components/tail/BasicNav'
-import CardAvatarStats from '../components/tail/CardAvatarStats'
-import DashboardSidebar from '../components/tail/DashboardSidebar'
-import FullDash from '../components/tail/FullDash'
-import GridList from '../components/tail/GridList'
+import dynamic from 'next/dynamic'
 
-export async function getStaticProps() {
+const DynamicDashboard = dynamic(() => import('../components/tail/FullDash'))
+
+export async function getServerSideProps() {
   
   const response = await fetch('http://localhost:3000/api/profileData', {method:'get'});
   const responseQuestions = await fetch('http://localhost:3000/api/questions', {method:'get'});
@@ -28,15 +25,9 @@ export async function getStaticProps() {
   }
 }
 
-const basic = ({ profileData, questionsData, trendingData, whoToFollowData }) => {
+export default function basic({ profileData, questionsData, trendingData, whoToFollowData }) {
   return (
-    // <BasicNav />
-    // <DashboardSidebar />
-    // <BannerWithImage />
-    // <CardAvatarStats />
-    // <GridList />
-    <FullDash profileData={profileData} questionsData={questionsData} trendingData={trendingData} whoToFollowData={whoToFollowData} />
+    <DynamicDashboard profileData={profileData} questionsData={questionsData} trendingData={trendingData} whoToFollowData={whoToFollowData} />
   )
 }
 
-export default basic
