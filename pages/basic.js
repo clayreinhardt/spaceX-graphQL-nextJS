@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 
-const DynamicDashboard = dynamic(() => import('../components/tail/FullDash'), { ssr: false })
+const DynamicDashboard = dynamic(() => import('../components/tail/FullDash'))
 
 export async function getStaticProps() {
   
