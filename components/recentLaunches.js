@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 const recentLaunches = gql`
 {
-  launchesPast(limit: 2) {
+  launchesPast(limit: 20) {
     id
     mission_name
     launch_date_local
@@ -15,6 +15,9 @@ const recentLaunches = gql`
       mission_patch
     }
     rocket {
+      rocket {
+        id
+      }
       rocket_name
     }
     ships {

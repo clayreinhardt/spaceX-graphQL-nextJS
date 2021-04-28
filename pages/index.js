@@ -3,6 +3,7 @@ import client from '../apollo-client'
 import Image from 'next/image'
 import recentLaunches from '../components/recentLaunches'
 import Video from '../components/Video'
+import Link from 'next/link'
 
 export default function Home({ launches }) {
 
@@ -30,9 +31,9 @@ export default function Home({ launches }) {
 
         <div className=" w-full flex-wrap justify-center items-center flex-shrink-0 flex ">
         {/* <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 "> */}
-          {launches.map((launch) => {
+          {launches.map((launch, i) => {
             const {
-              id,
+              // id,
               launch_date_local,
               launch_site: {
                 site_name_long,
@@ -44,18 +45,21 @@ export default function Home({ launches }) {
               },
               mission_name,
               rocket: {
+                rocket: {
+                  id,
+                },
                 rocket_name,
               },
               ships
             } = launch;
-
             return (
               <a
-                key={id}
+                key={i}
                 href={video_link}
                 className=" backdrop-filter backdrop-brightness-150 backdrop-blur-sm backdrop-opacity-75 shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
               >
                 <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold">{mission_name}</h3>
+                <h4><Link href={`/rockets/${id}`}><a className=" hover:text-blue-500 hover:bg-black">{rocket_name}</a></Link></h4>
                 <Image src={mission_patch ? mission_patch : 'https://images2.imgbox.com/d2/3b/bQaWiil0_o.png'} alt="hi" layout="fixed" height={60} width={60} />
                 <p className=" mt-4 text-xl ease-in-out transform duration-500 w-min relative group-hover:flex group-hover:font-mono ">
                   {new Date(launch_date_local).toLocaleDateString('en-US')}
