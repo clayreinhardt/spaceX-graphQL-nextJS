@@ -9,7 +9,10 @@
     @apply m-0;
     @apply font-sans;
     @apply text-white;
-    @apply bg-black;
+    @apply bg-sky;
+    @apply bg-cover;
+    @apply bg-repeat;
+    @apply object-fill;
   }
 
   * {

@@ -6,7 +6,7 @@ import Video from '../components/Video'
 function MyApp({ Component, pageProps }) {
   return (
 
-    <div className=" flex bg-stars bg-repeat-y flex-col items-stretch justify-stretch max-w-full h-full ">
+    <div className=" flex bg-stars bg-repeat flex-col items-stretch justify-stretch max-w-full h-full ">
       <Navbar />
       {/* <Video /> */}
       <Component {...pageProps} />

@@ -7,7 +7,6 @@ import Video from '../components/Video'
 export default function Home({ launches }) {
 
   return (
-    // <div className="flex flex-col items-start md:items-center justify-center w-screen min-h-screen py-2 ">
     <div>
       <Head>
         <title>Space X</title>
@@ -16,20 +15,20 @@ export default function Home({ launches }) {
 
       <main className=" flex flex-col space-y-5 py-5 items-center w-full min-h-screen justify-center px-20 text-center" >
 
-        <h1 className="text-6xl font-bold">
+        <h1 className=" text-4xl md:text-6xl font-bold">
           S P A C E - X{' '}<div className="pt-5 text-red-600">L A U N C H E S</div>
         </h1>
 
         <p className="mt-3 flex items-center justify-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 space-x-0 text-2xl">
-          <div className="text-gray-200">Latest satellite launch information from{' '}</div>
-          <code className="p-2 font-bold text-lg bg-[#145DA0] rounded-md ">
+          <div className=" text-lg md:text-3xl text-gray-200">Latest satellite launch information from{' '}</div>
+          <code className="p-2 font-bold text-sm md:text-lg bg-[#145DA0] rounded-md ">
             StarLink
           </code>
         </p>
 
 
 
-        <div className=" w-full flex-wrap justify-center items-center flex-shrink-0 flex bg-stars ">
+        <div className=" w-full flex-wrap justify-center items-center flex-shrink-0 flex ">
         {/* <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 "> */}
           {launches.map((launch) => {
             const {
