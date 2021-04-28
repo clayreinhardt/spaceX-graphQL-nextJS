@@ -22,8 +22,8 @@ export async function getStaticPaths() {
   const { data: { rockets } } = await client.query({
     query: getRockets
   })
-  const paths = rockets.map((rocket) => { 
-    const {id} = rocket;
+  const paths = rockets.map((rocket) => {
+    const { id } = rocket;
     const juice = { params: { rocketId: id } }
     return juice
   })
