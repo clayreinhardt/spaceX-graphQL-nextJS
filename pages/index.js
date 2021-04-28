@@ -19,7 +19,7 @@ export default function Home({ launches }) {
           S P A C E - X{' '}<div className="pt-5 text-red-600">L A U N C H E S</div>
         </h1>
 
-        <p className=" backdrop-filter backdrop-blur-sm backdrop-opacity-50 rounded-3xl bg-transparent mt-3 h-min flex items-center justify-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 space-x-0 text-2xl">
+        <p className=" backdrop-filter backdrop-blur-sm backdrop-opacity-75 h-min rounded-3xl bg-transparent mt-3 h-min flex items-center justify-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 space-x-0 text-2xl">
           <div className=" text-lg md:text-3xl text-gray-200">Latest satellite launch information from{' '}</div>
           <code className="p-2 font-bold text-sm md:text-lg bg-[#145DA0] rounded-md ">
             StarLink
