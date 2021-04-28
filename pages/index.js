@@ -29,7 +29,7 @@ export default function Home({ launches }) {
 
 
 
-        <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 ">
+        <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-5 ">
           {launches.map((launch) => {
             const {
               id,
