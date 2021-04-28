@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 const getRockets = gql`
 {
-  rockets(limit: 20) {
+  rockets(limit: 4) {
     name
     boosters
     company

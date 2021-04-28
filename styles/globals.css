@@ -10,9 +10,7 @@
     @apply font-sans;
     @apply text-white;
     @apply bg-sky;
-    @apply bg-cover;
-    @apply bg-repeat;
-    @apply object-fill;
+    @apply bg-contain;
   }
 
   * {
