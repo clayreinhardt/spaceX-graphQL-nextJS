@@ -32,7 +32,7 @@ export default function Home({ rockets }) {
       <main className=" flex flex-wrap my-4 gap-y-4 md:gap-x-4 space-y-0 py-5 items-center w-full justify-center flex-1 px-20 text-center">
         {rockets.map((rocket) => {
           return (
-            <div key={rocket.id} className=" backdrop-filter backdrop-blur-sm shadow-md ease-in-out duration-500 transform scale-95 hover:scale-100 hover:shadow-3xl w-96 h-auto bg-transparent ring-2 rounded-xl items-evenly flex flex-col justify-evenly">
+            <div key={rocket.id} className=" backdrop-filter backdrop-blur-sm backdrop-opacity-75 shadow-md ease-in-out duration-500 transform scale-95 hover:scale-100 hover:shadow-3xl w-96 h-auto bg-transparent ring-2 rounded-xl items-evenly flex flex-col justify-evenly">
               <div className=" w-full justify-between items-center p-2">
                 <span className=" block text-xl font-bold">Rocket Name</span>
                 <span>{rocket.name}</span>
