@@ -21,7 +21,7 @@ export default function Home({ rockets }) {
 
 
   // testing if the rockets are coming through
-  console.log(rockets)
+
   return (
     <div className="flex flex-col items-start md:items-center justify-center w-screen min-h-screen py-2 ">
       <Head>

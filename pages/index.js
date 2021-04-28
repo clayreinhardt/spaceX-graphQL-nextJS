@@ -1,11 +1,9 @@
 import Head from 'next/head'
 import client from '../apollo-client'
 import Image from 'next/image'
-import { Navbar } from '../components/Navbar'
 import recentLaunches from '../components/recentLaunches'
 export default function Home({ launches }) {
 
-  console.log(launches)
   return (
     // <div className="flex flex-col items-start md:items-center justify-center w-screen min-h-screen py-2 ">
     <div>
@@ -14,7 +12,8 @@ export default function Home({ launches }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col space-y-5 py-5 items-center w-full justify-center flex-1 px-20 text-center">
+      <main className="flex flex-col space-y-5 py-5 items-center w-full justify-center flex-1 px-20 text-center" >
+
         <h1 className="text-6xl font-bold">
           S P A C E - X{' '}<div className="pt-5 text-red-600">L A U N C H E S</div>
         </h1>
