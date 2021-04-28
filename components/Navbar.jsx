@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import Image from 'next/image';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -100,7 +101,11 @@ export const Navbar = () => {
                     <div>
                       <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         <span className="sr-only">Open user menu</span>
-                        <img
+                        <Image
+                          layout="fixed"
+                          height="32px"
+                          width="32px"
+                          objectFit="fill"
                           className="h-8 w-8 rounded-full"
                           src="https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
                           alt=""
