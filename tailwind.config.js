@@ -12,6 +12,11 @@ module.exports = {
       fontFamily: {
         sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
       },
+      backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(20px)',
+      },
+
       backgroundImage: theme => ({
         'astroDude': "url('/astroDudeSM.jpeg')",
       }),
@@ -25,5 +30,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('tailwindcss-filters'),
   ],
 }

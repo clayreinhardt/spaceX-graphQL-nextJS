@@ -15,15 +15,17 @@ export default function Home({ launches }) {
 
       <main className="flex flex-col space-y-5 py-5 items-center w-full justify-center flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
-          SpaceX{' '}<div className=" transform animate-bounce pt-5 font-mono text-red-600">Launches</div>
+          S P A C E - X{' '}<div className="pt-5 text-red-600">L A U N C H E S</div>
         </h1>
 
         <p className="mt-3 flex items-center justify-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 space-x-0 text-2xl">
-          <div className="text-gray-200">Latest launches from{' '}</div>
-          <code className="p-2 font-bold text-lg bg-gray-200 rounded-md">
-            SpaceX
+          <div className="text-gray-200">Latest launch information from{' '}</div>
+          <code className="p-2 font-bold text-lg bg-[#145DA0] rounded-md ">
+            Starship
           </code>
         </p>
+
+
 
         <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 ">
           {launches.map((launch) => {
@@ -63,8 +65,12 @@ export default function Home({ launches }) {
       </main>
 
 
-      {/* 
-     
+
+
+
+
+
+
 
       <footer className="flex items-center justify-center w-full h-24 border-t">
         <div
@@ -73,11 +79,10 @@ export default function Home({ launches }) {
           target="_blank"
           rel="noopener"
         >
-          Powered by Clay Reinhardt
+          Powered by Clay Reinhardt & Hassan Tariq
         </div>
       </footer>
-    </div> */}
-    </div>
+    </div >
   )
 }
 
