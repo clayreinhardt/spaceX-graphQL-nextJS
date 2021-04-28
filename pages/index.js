@@ -14,7 +14,7 @@ export default function Home({ launches }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=" flex flex-col space-y-5 py-5 items-center w-screen justify-center px-20 text-center" >
+      <main className=" flex flex-col space-y-5 py-5 items-center w-full min-h-screen justify-center px-20 text-center" >
 
         <h1 className="text-6xl font-bold">
           S P A C E - X{' '}<div className="pt-5 text-red-600">L A U N C H E S</div>
