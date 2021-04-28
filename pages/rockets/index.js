@@ -18,14 +18,10 @@ export async function getStaticProps() {
 
 
 export default function Home({ rockets }) {
-
-
-  // testing if the rockets are coming through
-
   return (
     <div >
       <Head>
-        <title>SpaceX Rockets</title>
+        <title>Rockets</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

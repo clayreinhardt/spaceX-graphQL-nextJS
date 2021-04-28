@@ -2,7 +2,6 @@ import Head from 'next/head'
 import client from '../apollo-client'
 import Image from 'next/image'
 import recentLaunches from '../components/recentLaunches'
-import Video from '../components/Video'
 import Link from 'next/link'
 
 export default function Home({ launches }) {
@@ -30,7 +29,6 @@ export default function Home({ launches }) {
 
 
         <div className=" w-full flex-wrap justify-center items-center flex-shrink-0 flex ">
-        {/* <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 "> */}
           {launches.map((launch, i) => {
             const {
               // id,
@@ -69,16 +67,6 @@ export default function Home({ launches }) {
           })}
         </div>
       </main>
-
-
-
-
-
-
-
-
-
-
     </div >
   )
 }

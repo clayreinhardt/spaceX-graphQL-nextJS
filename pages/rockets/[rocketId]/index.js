@@ -40,7 +40,7 @@ export default function Home({ rocket }) {
   return (
     <div className="flex flex-col items-start md:items-center justify-center w-screen min-h-screen py-2 ">
       <Head>
-        <title>SpaceX Rocket: {rocketId}</title>
+        <title>{rocketId}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
