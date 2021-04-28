@@ -18,7 +18,7 @@ module.exports = {
       },
 
       backgroundImage: theme => ({
-        'astroDude': "url('/astroDudeSM.jpeg')",
+        'sky': "url('/sky.jpg')",
       }),
       colors: {
         rose: colors.rose,
