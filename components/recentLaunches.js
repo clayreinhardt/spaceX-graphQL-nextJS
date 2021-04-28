@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 const recentLaunches = gql`
 {
-  launchesPast(limit: 10) {
+  launchesPast(limit: 2) {
     id
     mission_name
     launch_date_local

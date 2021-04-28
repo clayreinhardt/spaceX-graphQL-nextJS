@@ -29,10 +29,10 @@ export default function Home({ rockets }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-wrap my-4 gap-y-4 md:gap-x-4 bg-[#145DA0] space-y-0 py-5 items-center w-full justify-center flex-1 px-20 text-center">
+      <main className=" flex flex-wrap my-4 gap-y-4 md:gap-x-4 bg-transparent space-y-0 py-5 items-center w-full justify-center flex-1 px-20 text-center">
         {rockets.map((rocket) => {
           return (
-            <div key={rocket.id} className="w-96 h-auto bg-black ring-2 rounded-xl shadow-2xl items-evenly flex flex-col justify-evenly">
+            <div key={rocket.id} className=" backdrop-filter backdrop-blur-sm shadow-md ease-in-out duration-500 transform scale-95 hover:scale-100 hover:shadow-3xl w-96 h-auto bg-transparent ring-2 rounded-xl items-evenly flex flex-col justify-evenly">
               <div className=" w-full justify-between items-center p-2">
                 <span className=" block text-xl font-bold">Rocket Name</span>
                 <span>{rocket.name}</span>
@@ -60,7 +60,7 @@ export default function Home({ rockets }) {
               <div className=" py-4 px-2">
                 <span className=" block text-xl font-bold">More Rocket Info</span>
                 <Link href={`/rockets/${rocket.id}`} >
-                  <button className=" text-white bg-gray-900 text-sm transform hover:pulse hover:scale-110 rounded px-2">{rocket.name}</button>
+                  <button className=" outline-none focus:outline-none text-white bg-gray-600 text-sm transform hover:pulse hover:scale-110 rounded-lg px-4 py-3">{rocket.name}</button>
                 </Link>
               </div>
             </div>

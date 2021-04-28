@@ -14,7 +14,7 @@ export const Navbar = () => {
     <Disclosure as="nav" className="bg-[#003D7A] shadow">
     {({ open }) => (
       <>
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
           <div className="relative flex justify-between h-16">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button */}
@@ -27,26 +27,7 @@ export const Navbar = () => {
                 )}
               </Disclosure.Button>
             </div>
-            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="relative slashed-zero flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
-                <div className="w-full sm:max-w-xs">
-                  <label htmlFor="search" className="sr-only">
-                    Search
-                  </label>
-                  <div className="relative">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                      <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                    </div>
-                    <input
-                      id="search"
-                      name="search"
-                      className="block w-full bg-white-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
-                      placeholder="Search"
-                      type="search"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-around">
 
             
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -81,6 +62,25 @@ export const Navbar = () => {
                 >
                   Calendar
                 </a>
+              </div>
+            <div className="relative slashed-zero flex-1 px-2 flex items-center justify-center w-max sm:inset-0">
+                <div className="w-full sm:max-w-xs">
+                  <label htmlFor="search" className="sr-only">
+                    Search
+                  </label>
+                  <div className="relative">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+                      <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </div>
+                    <input
+                      id="search"
+                      name="search"
+                      className="block w-full bg-white-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
+                      placeholder="Search"
+                      type="search"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

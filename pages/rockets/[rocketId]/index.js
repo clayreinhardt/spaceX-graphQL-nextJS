@@ -44,7 +44,7 @@ export default function Home({ rocket }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex text-gray-900 flex-wrap bg-gray-800 space-y-0 py-5 items-center w-full justify-center flex-1 px-20 text-center">
+      <main className="flex text-gray-900 flex-wrap bg-transparent space-y-0 py-5 items-center w-full justify-center flex-1 px-20 text-center">
         <div className=" bg-gray-200 rounded lg:rounded-xl max-w-lg" >
           <div className=" bg-gradient-to-r from-gray-400 bg-contain rounded-t-sm lg:rounded-t-lg via-transparent to-gray-400 lg:px-10 lg:py-4 flex items-center justify-between px-2 py-1 text-2xl text-blue-600 uppercase font-extrabold " >
             <span className="">{newRocket.name}</span>
@@ -98,17 +98,6 @@ export default function Home({ rocket }) {
           </div>
         </div>
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <div
-          className="flex items-center justify-center"
-          href="https://clayreinhardt.com"
-          target="_blank"
-          rel="noopener"
-        >
-          Powered by Clay Reinhardt
-        </div>
-      </footer>
     </div>
   )
 }

@@ -14,7 +14,7 @@ export default function Home({ launches }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col space-y-5 py-5 items-center w-full justify-center flex-1 px-20 text-center" >
+      <main className=" flex flex-col space-y-5 py-5 items-center w-screen justify-center px-20 text-center" >
 
         <h1 className="text-6xl font-bold">
           S P A C E - X{' '}<div className="pt-5 text-red-600">L A U N C H E S</div>
@@ -29,7 +29,8 @@ export default function Home({ launches }) {
 
 
 
-        <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 ">
+        <div className=" w-full flex-wrap justify-center items-center flex-shrink-0 flex bg-stars ">
+        {/* <div className="flex flex-wrap border border-none max-w-7xl items-center w-screen justify-evenly mt-6 "> */}
           {launches.map((launch) => {
             const {
               id,
@@ -53,7 +54,7 @@ export default function Home({ launches }) {
               <a
                 key={id}
                 href={video_link}
-                className=" shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
+                className=" backdrop-filter backdrop-blur-sm shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
               >
                 <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold">{mission_name}</h3>
                 <Image src={mission_patch ? mission_patch : 'https://images2.imgbox.com/d2/3b/bQaWiil0_o.png'} alt="hi" layout="fixed" height={60} width={60} />
