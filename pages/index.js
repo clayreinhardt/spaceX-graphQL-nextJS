@@ -2,6 +2,8 @@ import Head from 'next/head'
 import client from '../apollo-client'
 import Image from 'next/image'
 import recentLaunches from '../components/recentLaunches'
+import Video from '../components/Video'
+
 export default function Home({ launches }) {
 
   return (
@@ -19,9 +21,9 @@ export default function Home({ launches }) {
         </h1>
 
         <p className="mt-3 flex items-center justify-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 space-x-0 text-2xl">
-          <div className="text-gray-200">Latest launch information from{' '}</div>
+          <div className="text-gray-200">Latest satellite launch information from{' '}</div>
           <code className="p-2 font-bold text-lg bg-[#145DA0] rounded-md ">
-            Starship
+            StarLink
           </code>
         </p>
 
