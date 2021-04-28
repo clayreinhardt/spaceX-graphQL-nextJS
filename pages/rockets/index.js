@@ -68,16 +68,7 @@ export default function Home({ rockets }) {
         })}
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <div
-          className="flex items-center justify-center"
-          href="https://clayreinhardt.com"
-          target="_blank"
-          rel="noopener"
-        >
-          Powered by Clay Reinhardt
-        </div>
-      </footer>
+
     </div>
   )
 }

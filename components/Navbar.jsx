@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { SearchIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 
 function classNames(...classes) {
@@ -10,14 +11,14 @@ function classNames(...classes) {
 
 export const Navbar = () => {
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="bg-[#003D7A] shadow">
     {({ open }) => (
       <>
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex justify-between h-16">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button */}
-              <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-red-500 hover:bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                 <span className="sr-only">Open main menu</span>
                 {open ? (
                   <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -27,12 +28,32 @@ export const Navbar = () => {
               </Disclosure.Button>
             </div>
             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="relative slashed-zero flex-1 px-2 flex items-center justify-center sm:absolute sm:inset-0">
+                <div className="w-full sm:max-w-xs">
+                  <label htmlFor="search" className="sr-only">
+                    Search
+                  </label>
+                  <div className="relative">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+                      <SearchIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </div>
+                    <input
+                      id="search"
+                      name="search"
+                      className="block w-full bg-gray-700 border border-transparent rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 focus:placeholder-gray-500 sm:text-sm"
+                      placeholder="Search"
+                      type="search"
+                    />
+                  </div>
+                </div>
+              </div>
+
             
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                 {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                <Link href="/#">
                <a
-                  className="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  className="border-indigo-500  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                 >
                   Home
                 </a>
@@ -42,7 +63,7 @@ export const Navbar = () => {
               <Link href='/rockets'>
               <a
                   href="#"
-                  className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  className="border-transparent  hover:border-gray-300 hover:text-red-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                 >
                   Rockets
                 </a>
@@ -50,13 +71,13 @@ export const Navbar = () => {
            
                 <a
                   href="#"
-                  className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  className="border-transparent  hover:border-red-300 hover:text-red-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                 >
               Coming soon
                 </a>
                 <a
                   href="#"
-                  className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  className="border-transparent hover:border-red-300 hover:text-red-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                 >
                   Calendar
                 </a>
