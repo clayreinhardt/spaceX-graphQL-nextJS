@@ -34,7 +34,7 @@ export const Navbar = () => {
                 {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                <Link href="/#">
                <a
-                  className="border-indigo-500  inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                      className=" border-transparent  hover:border-red-300 hover:text-red-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
                 >
                   Home
                 </a>
@@ -44,7 +44,7 @@ export const Navbar = () => {
               <Link href='/rockets'>
               <a
                   href="#"
-                  className="border-transparent  hover:border-gray-300 hover:text-red-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                      className="border-transparent  hover:border-red-300 hover:text-red-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                 >
                   Rockets
                 </a>
@@ -63,7 +63,7 @@ export const Navbar = () => {
                   Calendar
                 </a>
               </div>
-            <div className="relative slashed-zero flex-1 px-2 flex items-center justify-center w-max sm:inset-0">
+            <div className=" hidden md:relative slashed-zero flex-1 px-2 md:flex items-center justify-center w-max sm:inset-0">
                 <div className="w-full sm:max-w-xs">
                   <label htmlFor="search" className="sr-only">
                     Search
