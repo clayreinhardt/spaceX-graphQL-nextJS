@@ -6,7 +6,7 @@ export default function Notifications() {
   const [show, setShow] = useState(false)
 
   return (
-    <div >
+    <>
 
 
 <button onClick={()=>setShow(true)} className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -71,6 +71,6 @@ export default function Notifications() {
           </Transition>
         </div>
       </div>
-    </div>
+    </>
   )
 }
