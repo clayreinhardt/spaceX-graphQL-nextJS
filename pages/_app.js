@@ -8,7 +8,6 @@ function MyApp({ Component, pageProps }) {
 
     <div className=" flex flex-col items-stretch justify-stretch max-w-full h-full ">
       <Navbar />
-      <Video />
       <Component {...pageProps} />
       <Footer />
     </div>
