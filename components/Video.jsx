@@ -7,11 +7,11 @@ const Video = ({url}) => {
 
     const previousUrl = useRef(url);
 
-    useEffect(() => {
-        setTimeout(()=>{
-          videoRef.current.play()
-        },5000)
-      }, []);
+    // useEffect(() => {
+    //     setTimeout(()=>{
+    //       videoRef.current.play()
+    //     },5000)
+    //   }, []);
     useEffect(() => {
       if (previousUrl.current !== url && videoRef.current) {
         videoRef.current.load();
@@ -21,17 +21,17 @@ const Video = ({url}) => {
     return (
         <div>
              <video
-        key={url}
         ref={videoRef}
         controls
         autoPlay
+          width="320" height="240"
         loop
         muted
         style={{
           
         }}>
      {/* <source src="/stars.mp4" type="video/mp4"/> */}
-          <source src={url} type="url"/>
+          <source src={url} type="video/mp4"/>
     </video>
         </div>
     )
