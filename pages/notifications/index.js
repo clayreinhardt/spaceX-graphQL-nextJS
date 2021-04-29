@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 export async function getStaticProps(context) {
-    const res = await fetch(`http://localhost:3000/api/notifications`)
+    const res = await fetch(`${process.env.BASE_URL}/api/notifications`)
     const data = await res.json()
 
     if (!data) {
