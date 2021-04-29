@@ -67,6 +67,14 @@ export const Navbar = () => {
                   Roadster
                 </a>
               </Link>
+              <Link href="/disclaimer">
+                <a
+                  href="/disclaimer"
+                  className="border-transparent hover:border-red-300 hover:text-red-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                >
+                  Disclaimer & FAQSs 
+                </a>
+              </Link>
               </div>
             <div className=" hidden md:relative slashed-zero flex-1 px-2 md:flex items-center justify-center w-max sm:inset-0">
                 <div className="w-full sm:max-w-xs">

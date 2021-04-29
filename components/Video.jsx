@@ -30,8 +30,8 @@ const Video = ({url}) => {
         style={{
           
         }}>
-     {/* <source src="/stars.mp4" type="video/mp4"/> */}
-          <source src={url} type="video/mp4"/>
+     <source src="/spacex.mp4" type="video/mp4"/>
+          {/* <source src={url} type="video/mp4"/> */}
     </video>
         </div>
     )
