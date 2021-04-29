@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
 const notifications = ({ data }) => {
     console.log(data)
     return (
-        <div>
+        <div className='min-h-screen'>
 
         </div>
     )

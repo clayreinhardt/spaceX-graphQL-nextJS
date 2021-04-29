@@ -4,6 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/solid'
 import { BellIcon, SparklesIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image';
+import Notifications from './Notifications'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -97,16 +98,7 @@ export const Navbar = () => {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-             <Link href='/notifications'>
-             <a className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                <span className="sr-only">View notifications</span>
-                <SparklesIcon className="h-6 w-6" aria-hidden="true" />
-
-                {/* adding in the notifications for realtime updates via api or etc... */}
-             
-              </a>
-               
-             </Link>
+  <Notifications />
            
               {/* Profile dropdown */}
               <Menu as="div" className="ml-3 relative">
