@@ -42,6 +42,15 @@ export const Navbar = () => {
                 </a>
                </Link>
               
+               <Link href='/launches'>
+              <a
+                  href="#"
+                      className="border-transparent  hover:border-red-300 hover:text-red-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                >
+                  Launches
+                </a>
+              </Link>
+
 
               <Link href='/rockets'>
               <a
