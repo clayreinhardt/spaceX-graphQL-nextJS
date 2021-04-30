@@ -36,7 +36,6 @@ export default function Home({ launches }) {
               const missionRef = useRef()
               const [missionId, setMissionId] = useState('')
               const {
-                // id,
                 launch_date_local,
                 launch_site: {
                   site_name_long,
@@ -103,7 +102,6 @@ export async function getStaticProps() {
   const { data: { launchesPast } } = await client.query({
     query,
   });
-  console.log('launchesPast', launchesPast)
   return {
     props: {
       launches: launchesPast,
