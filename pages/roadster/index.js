@@ -13,35 +13,11 @@ export async function getStaticProps() {
       props: {
         roadster,
       }
-      // revalidate: 1,
     }
   }
 
-// export async function getStaticProps({}) {
-  
-//   // try {
-//     const roadsterResponse = await fetch(`${process.env.NEXT_BASE_URL}/api/roadster/roadsterdata`)
-//     const roadsterData = await roadsterResponse.json()
-//     console.log('roadsterdata', roadsterData)
-//     // console.log('roadsterData from fetch function', roadsterData)
-//     return {
-//       props: {
-//         roadster: roadsterData,
-//       }
-//     }
-// }
-//   } catch (error) {
-//     console.error(error)
-//     return {
-//       props: {
-//         roadster: {},
-//       }
-//     }
-//   }
-// }
 
 const roadster = ({ roadster }) => {
-  console.log('roadster from roadster!!!', roadster)
   return (
     <div className=" w-full min-h-screen md:max-w-7xl md:mx-auto">
       <Head>
