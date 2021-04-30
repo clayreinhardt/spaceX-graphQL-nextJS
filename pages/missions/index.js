@@ -131,12 +131,12 @@ export default function missionsPage({ missions }) {
 
             <div className="mt-10 w-full flex gap-2 flex-wrap flex-shrink-0">
               {missions.missions.map((item) => (
-                  <div key={item.id} className="relative w-max flex items-center justify-center">
-                    <Link href={`/missions/${item.id}`}>
-                      <a className=" bg-black w-max p-2 rounded box-border self-center transform hover:scale-105 hover:animate-pulse">{item.name}</a>
-                    </Link>
-                  </div>
-                )
+                <div key={item.id} className="relative w-max flex items-center justify-center">
+                  <Link href={`/missions/${item.id}`}>
+                    <a className=" bg-black w-max p-2 rounded box-border self-center transform hover:scale-105 hover:animate-pulse">{item.name}</a>
+                  </Link>
+                </div>
+              )
               )}
             </div>
           </div>
@@ -163,12 +163,12 @@ export default function missionsPage({ missions }) {
               </defs>
               <rect width={784} height={404} fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)" />
             </svg>
-            <img
+            {/* <img
               className="relative mx-auto"
               width={490}
               src="https://tailwindui.com/img/features/feature-example-1.png"
               alt=""
-            />
+            /> */}
           </div>
         </div>
 
@@ -242,12 +242,12 @@ export default function missionsPage({ missions }) {
                 </defs>
                 <rect width={784} height={404} fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)" />
               </svg>
-              <img
+              {/* <img
                 className="relative mx-auto"
                 width={490}
                 src="https://tailwindui.com/img/features/feature-example-2.png"
                 alt=""
-              />
+              /> */}
             </div>
           </div>
         </div>

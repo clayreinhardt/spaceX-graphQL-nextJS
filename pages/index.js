@@ -1,110 +1,83 @@
-import Head from 'next/head'
-import client from '../apollo-client'
-import Image from 'next/image'
-import recentLaunches from '../components/recentLaunches'
-import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
-
-export default function Home({ launches }) {
+import { Fragment } from 'react'
+import { Popover, Transition } from '@headlessui/react'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 
+
+export default function Home() {
   return (
-    <div className=" w-full min-h-screen">
-      <Head>
-        <title>Space X</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="relative bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <svg
+            className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+            fill="currentColor"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <polygon points="50,0 100,0 50,100 0,100" />
+          </svg>
 
-      <main className=" flex flex-col space-y-5 py-5 items-center w-full min-h-screen justify-center px-20 text-center" >
-
-        <h1 className=" backdrop-filter backdrop-blur-sm backdrop-opacity-50 rounded-3xl bg-transparent  text-4xl md:text-6xl font-bold">
-          S P A C E - X{' '}<div className="pt-5 text-red-600">L A U N C H E S</div>
-        </h1>
-
-        <p className=" backdrop-filter backdrop-blur-sm backdrop-opacity-75 h-min rounded-3xl bg-transparent mt-3 h-min flex items-center justify-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-2 space-x-0 text-2xl">
-          <span className=" text-lg md:text-3xl text-gray-200">Latest satellite launch information from{' '}</span>
-          <code className="p-2 font-bold text-sm md:text-lg bg-[#145DA0] rounded-md ">
-            StarLink
-          </code>
-        </p>
-
-
-
-          <div className=" w-full border-transparent border-red-400 mx-auto">
-        <div className=" w-full md:max-w-7xl md:mx-auto md:min-w-5xl flex-wrap justify-center items-center flex-shrink-0 flex ">
-            {launches.map((launch, i) => {
-              const missionRef = useRef()
-              const [missionId, setMissionId] = useState('')
-              const {
-                launch_date_local,
-                launch_site: {
-                  site_name_long,
-                },
-                links: {
-                  article_link = null,
-                  mission_patch,
-                  video_link,
-                },
-                mission_id,
-                mission_name,
-                rocket: {
-                  rocket: {
-                    id,
-                  },
-                  rocket_name,
-                },
-                ships
-              } = launch;
-              const splitUrl = video_link.split('/')
-            
-              useEffect(() => {
-                if (typeof mission_id[0] !== 'undefined'){
-                  setMissionId(mission_id)
-                } else {  
-                  if (missionId !== '') {
-                    setMissionId('')
-                  }
-                }
-              }, [mission_id])
-
-              return (
-                <div ref={missionRef} key={i}
-                className=" backdrop-filter backdrop-brightness-150 backdrop-blur-sm backdrop-opacity-75 shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-auto md:w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
-                >
-                    {mission_id.length > 1 && (mission_id[0].split('').length()) < 1 ? (
-                      <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold">{mission_name}</h3>
-                    ) : (
-                      <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold"><Link href={`/missions/${mission_id}`}><a>{mission_name}</a></Link></h3>
-                    )}
-                    <h4><Link href={`/rockets/${id}`}><a className=" hover:text-blue-500 text-lg hover:text-xl">{rocket_name}</a></Link></h4>
-                    <Link href={video_link}>
-                      <a>
-                        <Image src={mission_patch ? mission_patch : 'https://images2.imgbox.com/d2/3b/bQaWiil0_o.png'} alt="hi" layout="fixed" height={60} width={60} />
-                      </a>
-                    </Link>
-                    <p className=" mt-4 text-xl ease-in-out transform duration-500 w-min relative group-hover:flex group-hover:font-mono ">
-                      {new Date(launch_date_local).toLocaleDateString('en-US')}
-                    </p>
+          <Popover>
+            {({ open }) => (
+              <>
+                <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
 
                 </div>
-              )
-            })}
-          </div>
+
+                <Transition
+                  show={open}
+                  as={Fragment}
+                  enter="duration-150 ease-out"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="duration-100 ease-in"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+
+                </Transition>
+              </>
+            )}
+          </Popover>
+
+          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div className="sm:text-center lg:text-left">
+              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                <span className="block xl:inline">All of your favorite</span>{' '}
+                <span className="block text-indigo-600 xl:inline">Space X information.</span>
+              </h1>
+              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                Latest satellite launch information from Starlink
+              </p>
+              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div className="rounded-md shadow">
+                  <a
+                    href="/launches"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#003D7A] hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+                  >
+                    Get started
+                  </a>
+                </div>
+                <div className="mt-3 sm:mt-0 sm:ml-3">
+                  <a
+                    href="https://iss-sim.spacex.com/"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-700 bg-indigo-100 hover:bg-red-200 md:py-4 md:text-lg md:px-10"
+                  >
+                    Docking Simulation
+                  </a>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
-      </main>
-    </div >
+      </div>
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <video autoPlay style={{ height: '600px' }}>
+          <source src="/spacex.mp4" />
+        </video>
+      </div>
+    </div>
   )
-}
-
-export async function getStaticProps() {
-  const query = recentLaunches;
-
-  const { data: { launchesPast } } = await client.query({
-    query,
-  });
-  return {
-    props: {
-      launches: launchesPast,
-    }
-  }
 }
