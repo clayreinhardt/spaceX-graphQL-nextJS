@@ -2,7 +2,7 @@ import Link from "next/link"
 import Head from 'next/head'
 import Image from "next/image"
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   
   // try {
     const roadsterResponse = await fetch(`${process.env.BASE_URL}/api/roadster`)
