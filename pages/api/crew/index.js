@@ -1,6 +1,6 @@
 export default async function crew(req, res) {
   try {
-    const response = await fetch(`${process.env.SPACEX_BASE_URL}/crew`)
+    const response = await fetch(`${process.env.NEXT_SPACEX_BASE_URL}/crew`)
     const data = await response.json();
     res.status(200).json(data)
   } catch (error) {

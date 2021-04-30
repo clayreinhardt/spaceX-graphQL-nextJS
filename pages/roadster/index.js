@@ -5,7 +5,7 @@ import Image from "next/image"
 export async function getStaticProps() {
   
   // try {
-    const roadsterResponse = await fetch(`${process.env.BASE_URL}/api/roadster`)
+    const roadsterResponse = await fetch(`${process.env.NEXT_BASE_URL}/api/roadster/roadsterdata`)
     const roadsterData = await roadsterResponse.json()
     // console.log('roadsterData from fetch function', roadsterData)
     return {

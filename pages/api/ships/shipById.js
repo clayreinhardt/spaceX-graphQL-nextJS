@@ -1,7 +1,7 @@
 export default async function shipById(req, res) {
   const { shipId } = req.params;
   try {
-    const response = await fetch(`${process.env.SPACEX_BASE_URL}/ships/${shipId}`)
+    const response = await fetch(`${process.env.NEXT_SPACEX_BASE_URL}/ships/${shipId}`)
     const data = await response.json();
     res.status(200).json(data)
   } catch (error) {

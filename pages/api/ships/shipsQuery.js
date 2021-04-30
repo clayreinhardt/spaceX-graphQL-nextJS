@@ -1,6 +1,6 @@
 export default async function shipsQuery(req, res) {
   try {
-    const response = await fetch(`${process.env.SPACEX_BASE_URL}/ships/query`, {method: "POST"})
+    const response = await fetch(`${process.env.NEXT_SPACEX_BASE_URL}/ships/query`, {method: "POST"})
     const data = await response.json();
     res.status(200).json(data)
   } catch (error) {

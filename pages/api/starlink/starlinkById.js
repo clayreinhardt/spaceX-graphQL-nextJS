@@ -1,7 +1,7 @@
 export default async function starlinkById(req, res) {
   const { starlinkId } = req.params;
   try {
-    const response = await fetch(`${process.env.SPACEX_BASE_URL}/starlink/${starlinkId}`)
+    const response = await fetch(`${process.env.NEXT_SPACEX_BASE_URL}/starlink/${starlinkId}`)
     const data = await response.json();
     res.status(200).json(data)
   } catch (error) {

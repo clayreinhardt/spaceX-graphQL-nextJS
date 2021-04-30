@@ -1,6 +1,6 @@
 export default async function ships(req, res) {
   try {
-    const response = await fetch(`${process.env.SPACEX_BASE_URL}/ships`)
+    const response = await fetch(`${process.env.NEXT_SPACEX_BASE_URL}/ships`)
     const data = await response.json();
     res.status(200).json(data)
   } catch (error) {

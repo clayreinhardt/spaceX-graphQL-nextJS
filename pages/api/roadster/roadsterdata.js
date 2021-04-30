@@ -1,8 +1,9 @@
 
-export default async function handler(req, res) {
+export default async function roadsterdataPage(req, res) {
   try {
-    const response = await fetch(`${process.env.SPACEX_BASE_URL}/roadster`)
+    const response = await fetch(`${process.env.NEXT_SPACEX_BASE_URL}/roadster`)
     const data = await response.json();
+    // console.log('ROAD DATA', data)
     res.status(200).json(data)
     // res
     // res.status(200).setPreviewData(data)

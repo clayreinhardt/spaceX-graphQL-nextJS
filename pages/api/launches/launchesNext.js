@@ -1,6 +1,6 @@
 export default async function launchesNext(req, res) {
   try {
-    const response = await fetch(`${process.env.SPACEX_BASE_URL}/launches/next`)
+    const response = await fetch(`${process.env.NEXT_SPACEX_BASE_URL}/launches/next`)
     const data = await response.json();
     res.status(200).json(data)
   } catch (error) {
