@@ -2,14 +2,10 @@ export async function getStaticProps() {
     const res = await fetch(`${process.env.BASE_URL}/api/notifications`)
     const data = await res.json()
 
-    if (!data) {
-        return {
-            notFound: true,
-        }
-    }
-
     return {
-        props: { data }, // will be passed to the page component as props
+        props: {
+            data,
+        }
     }
 
 }
