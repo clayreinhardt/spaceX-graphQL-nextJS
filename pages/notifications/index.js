@@ -1,6 +1,5 @@
-export async function getStaticProps() {
-    const res = await fetch(`${process.env.BASE_URL}/api/notifications`)
-    const data = await res.json()
+export async function getStaticProps() {    
+    const data = { message: 'We dont have any new updates at the moment, check back later!'}
 
     return {
         props: {
