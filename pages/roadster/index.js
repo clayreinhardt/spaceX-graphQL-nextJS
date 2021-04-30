@@ -1,19 +1,35 @@
 import Link from "next/link"
 import Head from 'next/head'
 import Image from "next/image"
+import client from '../../apollo-client'
+import getRoadsterData from '../../components/getRoadsterData';
+const query = getRoadsterData;
 
 export async function getStaticProps() {
-  
-  // try {
-    const roadsterResponse = await fetch(`${process.env.NEXT_BASE_URL}/api/roadster/roadsterdata`)
-    const roadsterData = await roadsterResponse.json()
-    // console.log('roadsterData from fetch function', roadsterData)
+    const { data: { roadster } } = await client.query({
+      query,
+    });
     return {
       props: {
-        roadster: roadsterData,
+        roadster,
       }
+      // revalidate: 1,
     }
-}
+  }
+
+// export async function getStaticProps({}) {
+  
+//   // try {
+//     const roadsterResponse = await fetch(`${process.env.NEXT_BASE_URL}/api/roadster/roadsterdata`)
+//     const roadsterData = await roadsterResponse.json()
+//     console.log('roadsterdata', roadsterData)
+//     // console.log('roadsterData from fetch function', roadsterData)
+//     return {
+//       props: {
+//         roadster: roadsterData,
+//       }
+//     }
+// }
 //   } catch (error) {
 //     console.error(error)
 //     return {
@@ -25,6 +41,7 @@ export async function getStaticProps() {
 // }
 
 const roadster = ({ roadster }) => {
+  console.log('roadster from roadster!!!', roadster)
   return (
     <div className=" w-full min-h-screen md:max-w-7xl md:mx-auto">
       <Head>
@@ -36,16 +53,16 @@ const roadster = ({ roadster }) => {
         <p className=" backdrop-filter backdrop-blur-sm backdrop-opacity-70 w-10/12 leading-relaxed text-lg md:text-xl text-center font-semibold">{roadster.details}</p>
         <div className="responsive w-full px-4 py-5 flex flex-wrap gap-4 items-center justify-center slashed-zero">
           <div className=" rounded ring-4 ring-white">
-            <Image height={'300px'} width={`300px`} layout="intrinsic" src={roadster.flickr_images[0]} />
+            <Image height={'300px'} width={`300px`} layout="intrinsic" src={'/roadster1.jpeg'} />
           </div>
           <div className=" rounded ring-4 ring-white">
-            <Image height={'300px'} width={`300px`} layout="intrinsic" src={roadster.flickr_images[1]} />
+            <Image height={'300px'} width={`300px`} layout="intrinsic" src={'/roadster2.jpeg'} />
           </div>
           <div className=" rounded ring-4 ring-white">
-            <Image height={'300px'} width={`300px`} layout="intrinsic" src={roadster.flickr_images[2]} />
+            <Image height={'300px'} width={`300px`} layout="intrinsic" src={'/roadster3.jpeg'} />
           </div>
           <div className=" rounded ring-4 ring-white">
-            <Image height={'300px'} width={`300px`} layout="intrinsic" src={roadster.flickr_images[3]} />
+            <Image height={'300px'} width={`300px`} layout="intrinsic" src={'/roadster4.jpeg'} />
           </div>
         </div>
         <Link href="/">
