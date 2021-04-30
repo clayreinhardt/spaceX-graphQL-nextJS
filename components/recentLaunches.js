@@ -4,6 +4,7 @@ const recentLaunches = gql`
 {
   launchesPast(limit: 20) {
     id
+    mission_id
     mission_name
     launch_date_local
     launch_site {

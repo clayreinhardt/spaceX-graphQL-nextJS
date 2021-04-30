@@ -4,6 +4,7 @@ import Image from 'next/image'
 import recentLaunches from '../components/recentLaunches'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { useEffect, useRef, useState } from 'react'
 const DynamicVideo = dynamic(import('../components/Video'), { ssr: false })
 const DynamicYouTube = dynamic(
   () => import('../components/youtube/YouTube'),
@@ -48,6 +49,8 @@ export default function Home({ launches }) {
           <div className=" w-full border-transparent border-red-400 mx-auto">
         <div className=" w-full md:max-w-7xl md:mx-auto md:min-w-5xl flex-wrap justify-center items-center flex-shrink-0 flex ">
             {launches.map((launch, i) => {
+              const missionRef = useRef()
+              const [missionId, setMissionId] = useState('')
               const {
                 // id,
                 launch_date_local,
@@ -59,6 +62,7 @@ export default function Home({ launches }) {
                   mission_patch,
                   video_link,
                 },
+                mission_id,
                 mission_name,
                 rocket: {
                   rocket: {
@@ -70,21 +74,45 @@ export default function Home({ launches }) {
               } = launch;
               const splitUrl = video_link.split('/')
               const vId = splitUrl[splitUrl.length - 1]
+              console.log('mission_id', mission_id)
+            
+              useEffect(() => {
+                // console.log('mission id from component', mission_id)
+                console.log('missionId[0]', mission_id)
+                if (typeof mission_id[0] !== 'undefined'){
+                  console.log('mission id is valid!!!!!', mission_id)
+                  setMissionId(mission_id)
+                } else {
+                  console.log('mission id skipped because it is empty', mission_id)
+                  if (missionId !== '') {
+                    setMissionId('')
+                  }
+                }
+              }, [mission_id])
+
               return (
-                <div key={i}
+                <div ref={missionRef} key={i}
                 //  className="w-max h-max"
                 className=" backdrop-filter backdrop-brightness-150 backdrop-blur-sm backdrop-opacity-75 shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-auto md:w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
                 >
                   {/* <DynamicVideo url={video_link} /> */}
-                  <DynamicYouTube id={video_link} videoId={vId} opts={opts} className="" />
+                  {/* <DynamicYouTube id={video_link} videoId={vId} opts={opts} className="" /> */}
                   {/* <a                    
                     href='#'
                     className="w-max h-max"
                     // className=" backdrop-filter backdrop-brightness-150 backdrop-blur-sm backdrop-opacity-75 shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-auto md:w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
                   > */}
-                    <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold">{mission_name}</h3>
-                    <h4><Link href={`/rockets/${id}`}><a className=" hover:text-blue-500 hover:bg-black">{rocket_name}</a></Link></h4>
-                    <Image src={mission_patch ? mission_patch : 'https://images2.imgbox.com/d2/3b/bQaWiil0_o.png'} alt="hi" layout="fixed" height={60} width={60} />
+                    {mission_id.length > 1 && (mission_id[0].split('').length()) < 1 ? (
+                      <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold">{mission_name}</h3>
+                    ) : (
+                      <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold"><Link href={`/missions/${mission_id}`}><a>{mission_name}</a></Link></h3>
+                    )}
+                    <h4><Link href={`/rockets/${id}`}><a className=" hover:text-blue-500 text-lg hover:text-xl">{rocket_name}</a></Link></h4>
+                    <Link href={video_link}>
+                      <a>
+                        <Image src={mission_patch ? mission_patch : 'https://images2.imgbox.com/d2/3b/bQaWiil0_o.png'} alt="hi" layout="fixed" height={60} width={60} />
+                      </a>
+                    </Link>
                     <p className=" mt-4 text-xl ease-in-out transform duration-500 w-min relative group-hover:flex group-hover:font-mono ">
                       {new Date(launch_date_local).toLocaleDateString('en-US')}
                     </p>
@@ -105,7 +133,7 @@ export async function getStaticProps() {
   const { data: { launchesPast } } = await client.query({
     query,
   });
-
+  console.log('launchesPast', launchesPast)
   return {
     props: {
       launches: launchesPast,

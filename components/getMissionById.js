@@ -3,7 +3,7 @@ import { gql } from '@apollo/client'
 const getMissionById = (missionId) => {
   return gql`
 {
-  mission(id: ${missionId}){
+  mission(id: "${missionId}"){
     id
     name
     description

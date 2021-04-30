@@ -1,30 +1,67 @@
 import Link from "next/link"
 import Head from 'next/head'
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, MailIcon, ScaleIcon } from '@heroicons/react/outline'
+import client from '../../apollo-client'
+import getMissions from '../../components/getMissions';
+import getRockets from '../../components/getRockets';
 
-const transferFeatures = [
-  {
-    id: 1,
-    name: 'Competitive exchange rates',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: GlobeAltIcon,
-  },
-  {
-    id: 2,
-    name: 'No hidden fees',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: ScaleIcon,
-  },
-  {
-    id: 3,
-    name: 'Transfers are instant',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: LightningBoltIcon,
-  },
-]
+// const query = getRockets;
+const query = getMissions;
+
+export async function getStaticProps() {
+  // const { data: missions } = await client.query({
+  const { data: missions } = await client.query({
+    query,
+  });
+  // console.log('missions', missions)
+  // this logs retults to terminal 
+
+  // uncomment and return missions to get access
+  // to results inside your components via props
+  return {
+    props: {
+      missions,
+    },
+    revalidate: 1
+  }
+}
+/**
+ * getStaticProps() {
+ *  ... fetch your data here
+ *  return {
+ *    props: {
+ *      ...place your data here to give to page props,
+ *    }
+ *  }
+ * }
+ * 
+ */
+
+
+// const transferFeatures = getMissions;
+// [
+//   {
+//     id: 1,
+//     name: 'Competitive exchange rates',
+//     description:
+//       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//     icon: GlobeAltIcon,
+//   },
+//   {
+//     id: 2,
+//     name: 'No hidden fees',
+//     description:
+//       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//     icon: ScaleIcon,
+//   },
+//   {
+//     id: 3,
+//     name: 'Transfers are instant',
+//     description:
+//       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//     icon: LightningBoltIcon,
+//   },
+// ]
 const communicationFeatures = [
   {
     id: 1,
@@ -42,7 +79,12 @@ const communicationFeatures = [
   },
 ]
 
-export default function missions() {
+/**
+ **  destructure your returned 'props: { missions, }' data from getStaticProps 
+ *   export default function missions({ missions }) {
+ */
+export default function missionsPage({ missions }) {
+  // console.log('missions', missions)
   return (
     <div className="py-16 bg-gray-50 overflow-hidden lg:py-24">
       <div className="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
@@ -90,19 +132,32 @@ export default function missions() {
               Totam, velit.
             </p>
 
-            <dl className="mt-10 space-y-10">
-              {transferFeatures.map((item) => (
-                <div key={item.id} className="relative">
-                  <dt>
-                    <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                      <item.icon className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{item.name}</p>
-                  </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">{item.description}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="mt-10 w-full flex gap-2 flex-wrap flex-shrink-0">
+              {missions.missions.map((item) => (
+                  <div key={item.id} className="relative w-max flex items-center justify-center">
+                    <Link href={`/missions/${item.id}`}>
+                      <a className=" bg-black w-max p-2 rounded box-border self-center transform hover:scale-105 hover:animate-pulse">{item.name}</a>
+                    </Link>
+                    {/* <dt>
+                      <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <item.icon className="h-6 w-6" aria-hidden="true" />
+                      </div>
+                      <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{item.name}</p>
+                    </dt>
+                    <dd className="mt-2 ml-16 text-base text-gray-500">{item.description}</dd> */}
+                  </div>
+                )
+              )}
+            </div>
+            {/* <dl className="mt-10 space-y-10 w-full">
+              {missions.missions.map((item) => (
+                  <div key={item.id} className="relative w-full flex items-center justify-center">
+                    <span className=" bg-black w-max p-2 rounded box-border self-center">{item.name}</span>
+
+                  </div>
+                )
+              )}
+            </dl> */}
           </div>
 
           <div className="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">

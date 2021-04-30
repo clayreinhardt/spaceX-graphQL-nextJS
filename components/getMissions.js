@@ -1,7 +1,5 @@
 import { gql } from '@apollo/client'
-
-const getMissions = () => {
-  return gql`
+const getMissions = gql`
 {
   missions(limit: 40) {
     id
@@ -15,16 +13,21 @@ const getMissions = () => {
         lifespan_years
         longitude
       }
-      payload_mass_lbs
       payload_type
       reused
     }
     twitter
     website
     wikipedia
-  }
+   }
 }
 `
-}
 
 export default getMissions
+
+/**
+ * 
+ * you can change the query data here test it 
+ * out on the SXAPI and paste paste it back 
+ * in the qql function
+ */
