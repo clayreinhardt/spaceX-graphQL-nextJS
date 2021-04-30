@@ -3,26 +3,10 @@ import client from '../apollo-client'
 import Image from 'next/image'
 import recentLaunches from '../components/recentLaunches'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import { useEffect, useRef, useState } from 'react'
-const DynamicVideo = dynamic(import('../components/Video'), { ssr: false })
-const DynamicYouTube = dynamic(
-  () => import('../components/youtube/YouTube'),
-  { loading: () => <p>...</p> ,
-    ssr: false,  
-  }
-)
-// const YOUTUBE_PLAYLIST_ITEMS_API = 'https://www.googleapis.com/youtube/v3/playlistItems';
-// const PLAYLIST_ID = 'PLXhBGTh6SLZhaGfZigq0kIzdWdcSbJzVm'
+
 export default function Home({ launches }) {
 
-  const opts = {
-    height: '100%',
-    width: '100%',
-    playerVars: {
-      autoPlay: 1,
-    }
-  }
 
   return (
     <div className=" w-full min-h-screen">
@@ -73,17 +57,11 @@ export default function Home({ launches }) {
                 ships
               } = launch;
               const splitUrl = video_link.split('/')
-              const vId = splitUrl[splitUrl.length - 1]
-              console.log('mission_id', mission_id)
             
               useEffect(() => {
-                // console.log('mission id from component', mission_id)
-                console.log('missionId[0]', mission_id)
                 if (typeof mission_id[0] !== 'undefined'){
-                  console.log('mission id is valid!!!!!', mission_id)
                   setMissionId(mission_id)
-                } else {
-                  console.log('mission id skipped because it is empty', mission_id)
+                } else {  
                   if (missionId !== '') {
                     setMissionId('')
                   }
@@ -92,16 +70,8 @@ export default function Home({ launches }) {
 
               return (
                 <div ref={missionRef} key={i}
-                //  className="w-max h-max"
                 className=" backdrop-filter backdrop-brightness-150 backdrop-blur-sm backdrop-opacity-75 shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-auto md:w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
                 >
-                  {/* <DynamicVideo url={video_link} /> */}
-                  {/* <DynamicYouTube id={video_link} videoId={vId} opts={opts} className="" /> */}
-                  {/* <a                    
-                    href='#'
-                    className="w-max h-max"
-                    // className=" backdrop-filter backdrop-brightness-150 backdrop-blur-sm backdrop-opacity-75 shadow-md ease-in-out duration-500 transform scale-90 hover:scale-100 hover:shadow-3xl group flex flex-col items-center justify-center space-y-5 p-6 mt-6 text-left border w-auto md:w-96 rounded-xl hover:text-gray-200 focus:text-red-600"
-                  > */}
                     {mission_id.length > 1 && (mission_id[0].split('').length()) < 1 ? (
                       <h3 className="text-2xl transform group-hover:ease-in-out duration-500 font-bold">{mission_name}</h3>
                     ) : (
@@ -116,7 +86,7 @@ export default function Home({ launches }) {
                     <p className=" mt-4 text-xl ease-in-out transform duration-500 w-min relative group-hover:flex group-hover:font-mono ">
                       {new Date(launch_date_local).toLocaleDateString('en-US')}
                     </p>
-                  {/* </a> */}
+
                 </div>
               )
             })}

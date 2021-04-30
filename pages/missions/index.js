@@ -1,9 +1,7 @@
 import Link from "next/link"
-import Head from 'next/head'
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, MailIcon, ScaleIcon } from '@heroicons/react/outline'
 import client from '../../apollo-client'
 import getMissions from '../../components/getMissions';
-import getRockets from '../../components/getRockets';
 
 // const query = getRockets;
 const query = getMissions;
@@ -84,7 +82,6 @@ const communicationFeatures = [
  *   export default function missions({ missions }) {
  */
 export default function missionsPage({ missions }) {
-  // console.log('missions', missions)
   return (
     <div className="py-16 bg-gray-50 overflow-hidden lg:py-24">
       <div className="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
@@ -138,26 +135,10 @@ export default function missionsPage({ missions }) {
                     <Link href={`/missions/${item.id}`}>
                       <a className=" bg-black w-max p-2 rounded box-border self-center transform hover:scale-105 hover:animate-pulse">{item.name}</a>
                     </Link>
-                    {/* <dt>
-                      <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                        <item.icon className="h-6 w-6" aria-hidden="true" />
-                      </div>
-                      <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{item.name}</p>
-                    </dt>
-                    <dd className="mt-2 ml-16 text-base text-gray-500">{item.description}</dd> */}
                   </div>
                 )
               )}
             </div>
-            {/* <dl className="mt-10 space-y-10 w-full">
-              {missions.missions.map((item) => (
-                  <div key={item.id} className="relative w-full flex items-center justify-center">
-                    <span className=" bg-black w-max p-2 rounded box-border self-center">{item.name}</span>
-
-                  </div>
-                )
-              )}
-            </dl> */}
           </div>
 
           <div className="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">

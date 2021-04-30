@@ -1,25 +1,9 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import client from '../../../apollo-client';
 import getMissionById from '../../../components/getMissionById';
 import getMissions from '../../../components/getMissions';
 
-// const items = [
-//   { id: 1 },
-//   // More items...
-// ]
-
-// export default function Example() {
-//   return (
-//     <ul className="space-y-3">
-//       {items.map((item) => (
-//         <li key={item.id} className="bg-white shadow overflow-hidden px-4 py-4 sm:px-6 sm:rounded-md">
-//           {/* Your content */}
-//         </li>
-//       ))}
-//     </ul>
-//   )
 
 export async function getStaticProps({ params }) {
   const { missionId } = params;
@@ -27,7 +11,6 @@ export async function getStaticProps({ params }) {
   const { data: mission } = await client.query({
     query,
   });
-  // console.log('mission', mission)
   return {
     props: {
       mission,
@@ -61,13 +44,11 @@ export async function getStaticPaths() {
   }
 }
 
-// export default function Home({ mission }) {
 
 export default function Home({ mission }) {
   const router = useRouter()
   const { missionId } = router.query
   const newMission = mission.mission;
-  // console.log('mission', newMission)
   return (
     <div className="flex flex-col items-start md:items-center mt-10 justify-start w-screen min-h-screen py-2 ">
       <Head>

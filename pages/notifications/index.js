@@ -1,5 +1,4 @@
 export async function getStaticProps() {
-    console.log('base url from env' , process.env.BASE_URL)
     const res = await fetch(`${process.env.BASE_URL}/api/notifications`)
     const data = await res.json()
 
@@ -16,7 +15,6 @@ export async function getStaticProps() {
 }
 
 const notifications = ({data}) => {
-    console.log(data)
     return (
         <div className='min-h-screen'>
             <div className=" max-w-[600px] w-full mx-auto mt-10 backdrop-filter bg-transparent backdrop-blur-sm backdrop-opacity-70 h-[200px] flex justify-center items-center text-white">

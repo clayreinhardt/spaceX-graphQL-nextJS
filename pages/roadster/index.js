@@ -1,11 +1,6 @@
 import Link from "next/link"
 import Head from 'next/head'
 const roadster = () => {
-  const array = [1,2,-5,9,8,-5,9,-3,9,3,2,1,1,-8]
-  const one = array[0]
-  const sum = array.reduce((sum, value) => (sum + value))
-  console.log('sum', sum)
-
   return (
     <div className=" w-full min-h-screen md:max-w-7xl md:mx-auto">
       <Head>
