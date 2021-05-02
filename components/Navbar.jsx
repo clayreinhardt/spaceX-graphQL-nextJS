@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { SearchIcon } from '@heroicons/react/solid'
+
 import { BellIcon, SparklesIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image';
 import Notifications from './Notifications'
