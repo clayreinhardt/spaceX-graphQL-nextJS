@@ -24,18 +24,18 @@ class MyDocument extends Document {
                     <link
                         rel="preload"
                         as="style"
-                        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
                     />
                     <link
                         rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
                         media="print"
                         onLoad="this.media='all'"
                     />
                     <noscript>
                         <link
                             rel="stylesheet"
-                            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap"
+                            href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
                         />
                     </noscript>
                 </Head>

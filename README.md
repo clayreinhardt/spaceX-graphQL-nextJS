@@ -1,20 +1,23 @@
 ![spacex launch logo](public/readmelogo.png)
 
-`FindSpaceX` was designed to bring your attention to the latest updates in the future of our humanity.
+<div align='center'>
+Built By
+<a href="https://github.com/hassanmt96">Hassan Tariq</a> &
+<a href="https://github.com/clayreinhardt">Clayton Reinhardt</a>
+</div>
 
 ![GIF demo](public/demo.gif)
+
+Fully designed to bring your attention to the latest updates in the future of our humanity.
 
 This application was designed for nerds and space enthusiasts to track the latest updates in satellite data.
 
 ## **Usage & Technolgies**
 
 ```
-Usage: Navigate to Launches page to get updates on the latest internet constellations.
+Navigate to the Launches page to get updates on the latest internet constellations.
 
-
-Developed by Hassan Tariq & Clayton Reinhardt
-
-Tech used: NextJS, React, TailwindCSS, ThreeJS, Apollo GraphQL,
+This application was rendered using the technologies of NextJS, React, TailwindCSS, ThreeJS, & Apollo GraphQL.
 
 ```
 
@@ -37,7 +40,6 @@ TailwindCSS
 ThreeJs
 
 - Our rendition of the planetary system is focused on tracking and highlighting satellites by name or individual clicks.
-
 - 3D engine allows for drawing of simulated satellite points.
 
 NextJS
