@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 
-import { BellIcon, SparklesIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import {  MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image';
 import Notifications from './Notifications'
 
