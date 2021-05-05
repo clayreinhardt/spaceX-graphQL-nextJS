@@ -2,26 +2,39 @@ import { useState, useEffect, useCallback } from 'react'
 import Search from '../components/search/Search'
 import client from '../apollo-client'
 import recentLaunches from '../components/recentLaunches';
-const query = recentLaunches;
+import getRockets from '../components/getRockets';
+const launchesQuery = recentLaunches;
+const rocketQuery = getRockets;
 
 export async function getStaticProps() {
     const { data: { launchesPast } } = await client.query({
-        query,
+        query: launchesQuery,
+    });
+    const { data: { rockets } } = await client.query({
+        query: rocketQuery,
+
     });
     const minifiedLaunchesPast = launchesPast.map((launch, i) => {
-        return { missions: launch.mission_name }
+        return { missions: launch.mission_name, launchId: launch.id }
     })
+    const minifiedRockets = rockets.map((rocket, i) => {
+        return { name: rocket.name, rocketId: rocket.id, description: rocket.description }
+    })
+
+    //check to see what is rendered when launches past also is console logged with everyhting else
+    console.log(minifiedLaunchesPast)
     return {
         props: {
-            minifiedLaunchesPast
+            minifiedLaunchesPast, minifiedRockets
         },
         revalidate: 1
     }
+
+
 }
 
-const search = ({ minifiedLaunchesPast }) => {
+const search = ({ minifiedLaunchesPast, minifiedRockets }) => {
 
-    console.log(minifiedLaunchesPast)
 
     const [query, setQuery] = useState("");
     const [sortBy, setSortBy] = useState("launchName")
@@ -32,11 +45,22 @@ const search = ({ minifiedLaunchesPast }) => {
     const filteredLaunches = minifiedLaunchesPast.filter(
         item => {
             return (
-                item.missions.toLowerCase().includes(query.toLowerCase())
+                item.missions.toLowerCase().includes(query.toLowerCase()) ||
+                item.id.toLowerCase().includes(query.toLowerCase())
             )
         }
     )
 
+    // const filteredRockets = minifiedRockets.filter(
+    //     item => {
+    //         return (
+    //             item.rockets.toLowerCase()
+    //         )
+    //     }
+    // )
+
+
+    // resolve bug with adding more items to the search listing for the database
 
 
     return (
@@ -45,10 +69,14 @@ const search = ({ minifiedLaunchesPast }) => {
                 onQueryChange={myQuery => setQuery(myQuery)}
                 orderBy={orderBy} />
 
-            <ul className='divide-y divide-white' >
+            {/* <ul className='divide-y divide-red-500' >
+                {filteredRockets}
+            </ul> */}
+            <ul className='divide-y divide-red-300' >
                 {filteredLaunches.map((launch, i) => {
                     return <li key={i}>
-                        {launch.missions}
+                        Id: {launch.launchId}<br></br>
+                         Mission: {launch.missions}
                     </li>
 
                 })}

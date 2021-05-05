@@ -122,7 +122,7 @@ const BasicNav = () => {
                 </div>
               </div>
 
-              <Disclosure.Panel className="border-b border-gray-700 md:hidden">
+              <Disclosure.Panel className="border-b border-green-200 md:hidden">
                 <div className="px-2 py-3 space-y-1 sm:px-3">
                   {navigation.map((item, itemIdx) =>
                     itemIdx === 0 ? (
