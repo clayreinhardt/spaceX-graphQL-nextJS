@@ -40,7 +40,7 @@ const search = ({ minifiedLaunchesPast }) => {
 
 
     return (
-        <div>
+        <div className='min-h-screen justify-center'>
             <Search query={query}
                 onQueryChange={myQuery => setQuery(myQuery)}
                 orderBy={orderBy} />

@@ -1,12 +1,10 @@
-import {BiSearch, BiCaretDown, BiCheck } from 'react-icons/bi'
 import { SearchIcon } from '@heroicons/react/solid'
-import {useState} from 'react';
 
 // search & drop down 
 
-const DropDown =() =>{
+// const DropDown =() =>{
 
-}
+// }
 
 
 const Search = ({query, onQueryChange, orderBy, onOrderBy}) =>{
