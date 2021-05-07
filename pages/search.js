@@ -15,14 +15,14 @@ export async function getStaticProps() {
 
     });
     const minifiedLaunchesPast = launchesPast.map((launch, i) => {
-        return { missions: launch.mission_name, launchId: launch.id }
+        return { missions: launch.mission_name, launchId: launch.id, launchType: launch.__typename }
     })
     const minifiedRockets = rockets.map((rocket, i) => {
         return { name: rocket.name, rocketId: rocket.id, description: rocket.description }
     })
 
     //check to see what is rendered when launches past also is console logged with everyhting else
-    console.log(minifiedLaunchesPast)
+    // console.log(launchesPast)
     return {
         props: {
             minifiedLaunchesPast, minifiedRockets
@@ -45,8 +45,7 @@ const search = ({ minifiedLaunchesPast, minifiedRockets }) => {
     const filteredLaunches = minifiedLaunchesPast.filter(
         item => {
             return (
-                item.missions.toLowerCase().includes(query.toLowerCase()) ||
-                item.id.toLowerCase().includes(query.toLowerCase())
+                item.missions.toLowerCase().includes(query.toLowerCase())
             )
         }
     )
@@ -75,8 +74,9 @@ const search = ({ minifiedLaunchesPast, minifiedRockets }) => {
             <ul className='divide-y divide-red-300' >
                 {filteredLaunches.map((launch, i) => {
                     return <li key={i}>
-                        Id: {launch.launchId}<br></br>
-                         Mission: {launch.missions}
+                        Mission: {launch.missions}<br></br>
+                        Id: {launch.launchId}
+
                     </li>
 
                 })}

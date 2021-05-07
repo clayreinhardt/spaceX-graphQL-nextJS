@@ -2018,6 +2018,11 @@ react-dom@17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
+react-filter-search@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/react-filter-search/-/react-filter-search-1.0.11.tgz#8f38d968c56ca55431bd1353f02a137276181ec1"
+  integrity sha512-iHTUToEyUYbXqb/hNn8KM4zo0NtbGamEKuBJc0kvnXyJZBCUbkD9TQW+DaeA3wwV0sRZ0r64MXIEHJWHPw+Omw==
+
 react-icons@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
